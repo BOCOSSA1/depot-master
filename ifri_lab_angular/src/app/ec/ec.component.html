@@ -1,0 +1,46 @@
+<div class="btn-toolbar">
+  <button routerLink="/menu/save/ec-list" class="btn btn-sm btn-success">Liste des EC</button>
+</div>
+<form [formGroup]="validateForm" class="forme" (ngSubmit)="onsave()" style="margin-left: 15%;">
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Code EC: </label>
+          <input class="form-control" type="text" name="ecCode" formControlName="ecCode"
+            placeholder="Ecrire en majuscule">
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Nom EC: </label>
+          <input class="form-control" type="text" name="ecLibelle" formControlName="ecLibelle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label class="control-label">Coefficient: </label>
+          <input class="form-control" type="number" name="coefficient" formControlName="coefficient">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label">UE : </label>
+          <select class="form-control" id="ue" formControlName="ue">
+            <option [ngValue]="o" *ngFor="let o of ues">{{o.ueCode}} - {{o.ueLibelle}} - {{o.sem_Grade.specialite}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-toolbar" style="padding-left: 26%;">
+    <button type="submit" class="btn btn-success" [disabled]="validateForm.invalid">Sauvegarder</button>
+    <button type="button" class="btn btn-default" (click)="onResetForm()">Reset</button>
+  </div>
+</form>

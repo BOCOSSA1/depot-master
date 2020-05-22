@@ -1,0 +1,28 @@
+<nz-layout>
+    <nz-header>
+      <ul nz-menu nzTheme="light" nzMode="horizontal">
+        <li nz-menu-item [routerLink]="['/login']"><i nz-icon nzType="login" nzTheme="outline"></i>Connexion</li>
+        <li nz-menu-item [routerLink]="['/register']"><i nz-icon nzType="edit" nzTheme="outline"></i>Créer un compte</li>
+        <li nz-menu-item [routerLink]="['/about']"><i nz-icon nzType="info" nzTheme="outline"></i>A propos</li>
+      </ul>
+    </nz-header>
+    <nz-content>       
+      <form nz-form #f="ngForm" class="login-form" (ngSubmit)="onClick(f.value)">
+        <nz-form-item>
+            <p>Veuillez saisir votre adresse email</p>
+          <nz-form-control nzErrorTip="Veuillez entrer votre une adresse valide!">
+            <nz-input-group nzPrefixIcon="mail">
+              <input type="email" nz-input ngModel="" placeholder="Email" name="password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button class="login-form-button" [nzType]="'primary'" type="submit">Envoyer</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-content>
+    <nz-footer>Designed by Joël with Ant zorro <span style="float: right;">@ Copy-right 2019</span></nz-footer>
+  </nz-layout>
+  

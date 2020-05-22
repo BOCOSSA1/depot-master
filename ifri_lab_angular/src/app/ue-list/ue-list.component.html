@@ -1,0 +1,41 @@
+<nz-table #basicTable
+[nzData]="ueList"
+[nzPageSize]=5>
+<thead>
+<tr>
+  <th>Code UE</th>
+  <th>Nom UE</th>
+  <th>Moyenne de validation</th>
+  <th>Année Scolaire</th>
+  <th>Spécialité</th>
+  <th>Grade</th>
+  <th>Semestre</th>
+  <th>Action</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let data of basicTable.data">
+  <td>{{data.ueCode}}</td>
+  <td>{{data.ueLibelle}}</td>
+  <td>{{data.moyenneValidation}}</td>
+  <td>{{data.anneeAcademique.anneeId}}</td>
+  <td>{{data.sem_Grade.specialite}}</td>
+  <td>{{data.sem_Grade.grade.gradeLibelle}}</td>
+  <td>{{data.sem_Grade.semestre.semLibelle}}</td>
+  <td>
+      <nz-popconfirm [nzTitle]="'Sûr de modifier?'" (nzOnConfirm)="ouvrirModifier(data.ueId)">
+        <button nz-popconfirm title="Modifier" nz-button nzType="green" [nzSize]="size" nzShape="circle">
+          <i nz-icon type="edit"></i>
+        </button>
+      </nz-popconfirm>
+      <nz-popconfirm [nzTitle]="'Sûr de supprimer ?'" (nzOnConfirm)="ueDelete(data.ueId)">
+          <button nz-popconfirm title="Supprimer" nz-button nzType="danger" [nzSize]="size" nzShape="circle">
+            <i nz-icon type="delete"></i>
+          </button>
+      </nz-popconfirm>
+     
+  </td>
+</tr>
+</tbody>
+</nz-table>

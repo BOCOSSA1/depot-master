@@ -1,0 +1,117 @@
+<form #c="ngForm" *ngIf="mode==0" style="margin-left: 15%;">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Nom: </label>
+          <input class="form-control" type="text" name="nom" ngModel="" required />
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Prénoms: </label>
+          <input class="form-control" type="text" name="prenom" ngModel="" required />
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label" id="sexeSelected">Sexe: </label>
+          <select class="form-control" name="sexe" id="sexeSelected" [(ngModel)]="sexeSelected">
+            <option value="man">Homme</option>
+            <option value="woman">Femme</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">E-mail: </label>
+          <input class="form-control" type="email" name="email" ngModel="" required />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Type d'utiisateur: </label>
+          <select class="form-control" name="typePersonne" id="typePersonne" [(ngModel)]="typeSelected">
+            <option value="etudiant">Etudiant</option>
+            <option value="parent">Parent</option>
+            <option value="autorite">Autorité</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="typeSelected == 'etudiant'">
+        <div class="form-group">
+          <label class="control-label">Matricule: </label>
+          <input class="form-control" type="text" name="matricule" ngModel="" required />
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Username: </label>
+          <input class="form-control" type="text" name="username" ngModel="" required />
+        </div>
+      </div>
+      <div class="col-md-5">
+        <label class="control-label">Téléphone</label>
+        <input class="form-control" type="text" name="telephone" ngModel="" required />
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Password: </label>
+          <input class="form-control" type="password" name="password" ngModel="" required />
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Confirm Password: </label>
+          <input class="form-control" type="password" name="repassword" ngModel="" required />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="control-label">Ajouter un role: </label>
+          <select class="form-control" name="role" id="role" [(ngModel)]="roleSelected" required>
+            <option value="user">Utilisateur</option>
+            <option value="autorite">Autorité</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-toolbar" style="padding-left: 26%;">
+    <!-- <button routerLink="/register" type="submit" class="btn btn-success" [disabled]="!f.valid">Register</button>-->
+    <button type="button" (click)="onCreate(c.value)" class="btn btn-success" [disabled]="!c.valid">Register</button>
+    <button type="button" class="btn btn-default" (click)="onResetForm(c.value)">Reset</button>
+  </div>
+</form>

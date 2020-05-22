@@ -1,0 +1,47 @@
+<div class="btn-toolbar">
+    <button routerLink="/menu/save/note-list" class="btn btn-sm btn-success">Liste des notes</button>
+  </div>
+  <form [formGroup]="validateForm" class="forme" (ngSubmit)="onsave()" style="margin-left: 15%;">
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Note : </label>
+              <input class="form-control" type="number" name="note" formControlName="note" placeholder="Exemple : 17.50" >
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Date de la note: </label>
+              <input class="form-control" type="date" name="noteDate" formControlName="noteDate" placeholder="jj/mm/aaaa" >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+                <label class="control-label">EC : </label>
+                <select class="form-control" id="ec" formControlName="ec">
+                <option [ngValue]="o" *ngFor="let o of ecs" >{{o.ecCode}} - {{o.ecLibelle}} - {{o.ue.sem_Grade.specialite}}</option>
+                </select>
+              </div>
+          </div>
+          <div class="col-md-5">
+              <div class="form-group">
+                <label class="control-label">Etudiant : </label>
+                <select class="form-control" id="etudiant" formControlName="etudiant">
+                  <option [ngValue]="o" *ngFor="let o of etudiants">{{o.matricule}} - {{o.nom}} - {{o.prenom}}</option>
+                </select>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="btn-toolbar" style="padding-left: 26%;">
+        <button type="submit"  class="btn btn-success" [disabled]="validateForm.invalid">Sauvegarder</button>
+        <button type="button" class="btn btn-default" (click)="onResetForm()">Reset</button>
+      </div>
+    </form>

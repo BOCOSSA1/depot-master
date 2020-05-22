@@ -1,0 +1,7 @@
+.container{
+  max-width: 600px;
+  margin-top: 150px;
+}
+.panel-body{
+  text-align: justify;
+}

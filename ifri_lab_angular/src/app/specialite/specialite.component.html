@@ -1,0 +1,40 @@
+<div class="btn-toolbar"> 
+    <button routerLink="/menu/save/specialite-list" class="btn btn-sm btn-success">Liste des filières</button>
+</div>
+<form [formGroup]="validateForm" class="forme" (ngSubmit)="onsave()" style="margin-left: 15%;">
+     <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+  
+          </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Code de filière: </label>
+              <input class="form-control" type="text" name="code" formControlName="code" placeholder="Ecrire en majuscule">              
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+  
+          </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Nom de filière: </label>
+              <input class="form-control" type="text" name="specialite" formControlName="specialite">              
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="btn-toolbar" style="padding-left: 26%;">
+      <!-- <button routerLink="/register" type="submit" class="btn btn-success" [disabled]="!f.valid">Register</button>-->
+      <button type="submit"  class="btn btn-success" [disabled]="validateForm.invalid">Sauvegarder</button>
+      <button type="button" class="btn btn-default" (click)="onResetForm()">Reset</button>
+    </div>
+  </form>

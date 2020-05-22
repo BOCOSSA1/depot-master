@@ -1,0 +1,41 @@
+
+.container{
+  margin-left: 64%;
+ margin-top: 50px;
+  max-width: 600px;
+
+}
+
+.paragraph{
+  text-align: justify;
+}
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+:host {
+  text-align: center;
+}
+
+nz-header,
+nz-footer {
+  background:  #fff;
+  color: #fff;
+  margin-bottom: Opx;
+}
+
+nz-footer {
+  line-height: 1.5;
+}
+
+
+
+nz-content {
+  background: white; /*(16, 142, 233, 1);*/
+  color: black;/* #fff;*/
+  max-width: 600px;
+ /* min-height: 120px;
+  line-height: 120px;*/
+}
+
+

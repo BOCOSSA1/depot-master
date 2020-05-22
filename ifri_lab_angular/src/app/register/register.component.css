@@ -1,0 +1,61 @@
+.row{
+    background: #00000008;
+    margin-left: 3%;
+    max-width: 100%;
+}
+.btn{
+    margin-right: 5px;
+}
+
+nz-header,
+  nz-footer {
+    background: #fff;
+    color: #fff;
+  }
+
+  :host {
+    text-align: center;
+  }
+  
+  nz-footer{
+    color: black;
+  }
+  /*
+  .paragraph{
+    text-align: justify;
+  }
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+  
+ 
+  
+  
+  
+  nz-footer {
+    line-height: 1.5;
+  }
+  
+  nz-sider {
+    background: #fff;
+    color: #fff;
+    line-height: 120px;
+  }
+  
+  nz-content {
+    background: ash; 
+    color: #fff;
+    min-height: 120px;
+    line-height: 120px;
+  }
+  
+  nz-layout {
+    margin-bottom: 48px;
+  }
+  
+  nz-layout:last-child {
+    margin: 0;
+  }
+ 
+  */

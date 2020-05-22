@@ -1,0 +1,47 @@
+<nz-layout>
+    <nz-header>
+      <ul nz-menu nzTheme="light" nzMode="horizontal">
+        <li nz-menu-item [routerLink]="['/login']"><i nz-icon nzType="login" nzTheme="outline"></i>Connexion</li>
+        <li nz-menu-item [routerLink]="['/register']"><i nz-icon nzType="edit" nzTheme="outline"></i>Créer un compte</li>
+        <li nz-menu-item [routerLink]="['/about']"><i nz-icon nzType="info" nzTheme="outline"></i>A propos</li>
+      </ul>
+    </nz-header>
+    <nz-content>
+        <a href="http://ifri-uac.net//" target="_blank">
+         <img class="img-circle" src="./assets/img/ifri - Copie (2).jpg"  alt="Circular Image">
+        </a>
+        <div class="alert alert-danger" class="divp" *ngIf="mode==1">
+          <strong>Identifiants incorrect...</strong>
+        </div>
+       
+      <form nz-form #f="ngForm" class="login-form" (ngSubmit)="onLogin(f.value)">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Veuillez entrer votre nom d'utilisateur!">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input ngModel="" placeholder="Nom d'utilisateur" name="username"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Veuillez entrer votre mot de passe!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input ngModel="" placeholder="Mot de passe" name="password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <label nz-checkbox >
+              <span>Se rappeller de moi</span>
+            </label>
+            <a class="login-form-forgot" routerLink="/forgot">Mot de passe oublié</a>
+            <button nz-button class="login-form-button" [nzType]="'primary'" type="submit">Se connecter</button>
+            Ou
+            <a routerLink="/register">S'enregistrer maintenant!</a>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-content>
+    <nz-footer>Designed by Joël with Ant zorro <span style="float: right;">@ Copy-right 2019</span></nz-footer>
+  </nz-layout>
+  

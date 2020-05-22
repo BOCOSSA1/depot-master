@@ -1,0 +1,65 @@
+<div class="btn-toolbar">
+    <button routerLink="/menu/save/ue-list" class="btn btn-sm btn-default">Liste des UE</button>
+  </div>
+  <form [formGroup]="validateForm" class="forme" (ngSubmit)="onsave()" style="margin-left: 15%;">
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Code UE: </label>
+              <input class="form-control" type="text" name="ueCode" formControlName="ueCode" placeholder="Ecrire en majuscule" >
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Nom UE: </label>
+              <input class="form-control" type="text" name="ueLibelle" formControlName="ueLibelle" >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                  <label class="control-label">Moyenne de validation : </label>
+                  <input class="form-control" type="number" name="moyenneValidation"
+                   formControlName="moyenneValidation" placeholder="Exemple : 12.50" >
+                </div>
+              </div>
+          <div class="col-md-5">
+              <div class="form-group">
+                <label class="control-label">Année scolaire : </label>
+                <select class="form-control" id="anneeAcademique" formControlName="anneeAcademique">
+                  <option [ngValue]="o" *ngFor="let o of annees">{{o.anneeId}}</option>
+                </select>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+
+            </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Spécialité: </label>
+                <select class="form-control" id="sem_Grade" formControlName="sem_Grade">
+                  <option [ngValue]="o" *ngFor="let o of semGrades">{{o.grade.gradeId}} - {{o.semestre.semId}} - {{o.specialite}}</option>
+                </select>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="btn-toolbar" style="padding-left: 26%;">
+        <!-- <button routerLink="/register" type="submit" class="btn btn-success" [disabled]="!f.valid">Register</button>-->
+        <button type="submit"  class="btn btn-success" >Sauvegarder</button>
+        <button type="button" class="btn btn-default" (click)="onResetForm()">Reset</button>
+      </div>
+    </form>

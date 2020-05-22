@@ -1,0 +1,72 @@
+
+.login-form {
+  max-width: 300px;
+  margin-left: 40%;
+  margin-top: 20px;
+}
+.img-circle{
+  margin-top: 1%;
+}
+.divp{
+  color: red;
+  /*background-color: rosybrown;*/
+  max-width: 300px;
+  margin-left: 38%;
+}
+.login-form-forgot {
+  float: right;
+}
+
+
+.login-form-button {
+  width: 100%;
+}
+.container{
+  max-width: 350px;
+}
+
+.paragraph{
+  text-align: justify;
+}
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+:host {
+  text-align: center;
+}
+
+nz-header,
+nz-footer {
+  background: #fff;
+  color: #fff;
+}
+
+nz-footer {
+  line-height: 1.5;
+}
+
+nz-sider {
+  background: #fff;
+  color: #fff;
+  line-height: 120px;
+}
+
+nz-content {
+  background: ash; 
+  color: #fff;
+  min-height: 120px;
+  line-height: 120px;
+}
+
+nz-layout {
+  margin-bottom: 48px;
+}
+
+nz-layout:last-child {
+  margin: 0;
+}
+nz-footer{
+  color: black;
+}

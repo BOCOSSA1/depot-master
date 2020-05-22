@@ -1,0 +1,57 @@
+<div class="btn-toolbar"> 
+    <button routerLink="/menu/save/semestre-list" class="btn btn-sm btn-success">Liste des semestres</button>
+</div>
+<form [formGroup]="validateForm" class="forme" (ngSubmit)="onsave()" style="margin-left: 15%;">
+ 
+    <div class="col-md-12">
+      <div class="row">
+        
+        <div class="col-md-2">
+            <div class="form-group">
+    
+            </div>
+          </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label class="control-label">ID: </label>
+            <input class="form-control" type="number" formControlName="semId"/>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+  
+          </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Semestre: </label>
+              <select class="form-control" id="semLibelle" formControlName="semLibelle">
+                <option value="semestre1">Semestre 1</option>
+                <option value="semestre2">Semestre 2</option>
+                <option value="semestre3">Semestre 3</option>
+                <option value="semestre4">Semestre 4</option>
+                <option value="semestre5">Semestre 5</option>
+                <option value="semestre6">Semestre 6</option>
+                <option value="semestre7">Semestre 7</option>
+                <option value="semestre8">Semestre 8</option>
+                <option value="semestre9">Semestre 9</option>
+                <option value="semestre10">Semestre 10</option>
+                <option value="semestre11">Semestre 11</option>
+                <option value="semestre12">Semestre 12</option>
+              </select>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="btn-toolbar" style="padding-left: 26%;">
+      <!-- <button routerLink="/register" type="submit" class="btn btn-success" [disabled]="!f.valid">Register</button>-->
+      <button type="submit"  class="btn btn-success" [disabled]="validateForm.invalid">Sauvegarder</button>
+      <button type="button" class="btn btn-default" (click)="onResetForm()">Reset</button>
+    </div>
+  </form>

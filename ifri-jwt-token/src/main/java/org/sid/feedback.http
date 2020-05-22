@@ -1,0 +1,10 @@
+POST http://localhost:8080/feedback
+Content-Type: application/json
+
+{
+  "name": "IFRI / UAC",
+  "email": "ifri-uac@gmail.com",
+  "feedback": "Bonjour mr/mlle.... De nouveaux résultats sont disponibles :)"
+}
+
+###

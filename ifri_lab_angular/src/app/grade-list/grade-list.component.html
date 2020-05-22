@@ -1,0 +1,31 @@
+<nz-table #basicTable
+[nzData]="gradeList"
+[nzPageSize]=5>
+<thead>
+<tr>
+  <th>ID</th>
+  <th>Grade</th>
+  <th>Action</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let data of basicTable.data">
+  <td>{{data.gradeId}}</td>
+  <td>{{data.gradeLibelle}}</td>
+  <td>
+      <nz-popconfirm [nzTitle]="'Sûr de modifier?'" (nzOnConfirm)="ouvrirModifier(data.gradeId)">
+        <button nz-popconfirm title="Modifier" nz-button nzType="green" [nzSize]="size" nzShape="circle">
+          <i nz-icon type="edit"></i>
+        </button>
+      </nz-popconfirm>
+      <nz-popconfirm [nzTitle]="'Sûr de supprimer ?'" (nzOnConfirm)="gradeDelete(data.gradeId)">
+          <button nz-popconfirm title="Supprimer" nz-button nzType="danger" [nzSize]="size" nzShape="circle">
+            <i nz-icon type="delete"></i>
+          </button>
+      </nz-popconfirm>
+     
+  </td>
+</tr>
+</tbody>
+</nz-table>

@@ -1,0 +1,159 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="http://ifri-uac.net//" target="_blank">
+        <img src="./assets/img/ifri_log.png" alt="Le Visualiseur">
+        <h1>IFRI SR VIEWER</h1>
+      </a>
+    </div>
+    <div *ngIf="authService.isSuper()">
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/login"><i nz-icon nzType="home" nzTheme="outline"></i>Accueil</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/one-result"><i nz-icon nzType="eye" nzTheme="outline"></i>Voir mon résultat</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/consulter"><i nz-icon nzType="eye" nzTheme="outline"></i>Voir résultat d'une
+                classe</a>
+            </li>
+
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/save"><i nz-icon nzType="save" nzTheme="outline"></i>Enregistrements</a>
+            </li>
+
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/upload"><i nz-icon nzType="upload" nzTheme="outline"></i>Publier nouveau resultat</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/create"><i nz-icon nzType="user" nzTheme="outline"></i>Créer nouveau utilisateur</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/email"><i nz-icon nzType="mail" nzTheme="outline"></i>Envoyer un email</a>
+            </li>
+
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/user-list"><i nz-icon nzType="container" nzTheme="outline"></i>Liste des
+                utilisateurs</a>
+            </li>
+
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/logOut" (click)="onLogout()"><i nz-icon nzType="logout"
+                  nzTheme="outline"></i>Déconnexion</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+    <div *ngIf="authService.isAdmin()">
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/login"><i nz-icon nzType="home" nzTheme="outline"></i>Accueil</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/one-result"><i nz-icon nzType="eye" nzTheme="outline"></i>Voir mon résultat</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/consulter"><i nz-icon nzType="eye" nzTheme="outline"></i>Voir résultat d'une
+                classe</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/save"><i nz-icon nzType="save" nzTheme="outline"></i>Enregistrements</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/upload"><i nz-icon nzType="upload" nzTheme="outline"></i>Publier nouveau resultat</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/create"><i nz-icon nzType="user" nzTheme="outline"></i>Créer nouveau utilisateur</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/user-list"><i nz-icon nzType="container" nzTheme="outline"></i>Liste des
+                utilisateurs</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/logOut" (click)="onLogout()"><i nz-icon nzType="logout"
+                  nzTheme="outline"></i>Déconnexion</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+    <div *ngIf="authService.isUser()">
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/login"><i nz-icon nzType="home" nzTheme="outline"></i>Accueil</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/one-result"><i nz-icon nzType="eye" nzTheme="outline"></i>Voir mon résultat</a>
+            </li>
+
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/logOut" (click)="onLogout()"><i nz-icon nzType="logout"
+                  nzTheme="outline"></i>Déconnexion</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+    <div *ngIf="authService.isAuth()">
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/login"><i nz-icon nzType="home" nzTheme="outline"></i>Accueil</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/one-result"><i nz-icon nzType="eye" nzTheme="outline"></i>Voir mon résultat</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/consulter"><i nz-icon nzType="eye" nzTheme="outline"></i>Voir résultat d'une
+                classe</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/save"><i nz-icon nzType="save" nzTheme="outline"></i>Enregistrements</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/menu/upload"><i nz-icon nzType="upload" nzTheme="outline"></i>Publier nouveau resultat</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/logOut" (click)="onLogout()"><i nz-icon nzType="logout"
+                  nzTheme="outline"></i>Déconnexion</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+        </span>
+
+        <span style="float: right;">
+          {{ user.username }}
+          <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

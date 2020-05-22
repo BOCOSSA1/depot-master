@@ -1,0 +1,26 @@
+<p style="text-align: center; color: green; font: bold; font-style: italic; font-size:30px;">Bienvenu sur l'interface de chargement des résultats !!!</p>
+<form [formGroup]="validateForm" (ngSubmit)="onSubmit()" style="margin-left: 35%; margin-top: 5%;">
+   <div class="form-group">
+    <div class="row">
+        <div class="col-md-12">
+            
+                <div class="col-md-5">
+                    <input type="file" (change)="upload($event)" formControlName="file">                    
+                </div>
+                <div class="col-md-2">
+                    <button type="submit"  class="btn btn-success">Ok</button>
+                </div>
+            
+        </div>
+    </div>
+   </div>
+</form>
+
+
+<table>
+    <tr *ngFor="let d of donnees">
+        <td *ngFor="let el of d">
+            {{el}}
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,40 @@
+<div>
+    <nz-table #basicTable [nzData]="noteList" [nzPageSize]=5>
+        <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Notes</th>
+                <th>UE</th>
+                
+                <th>Date</th>
+                <th>Semestre</th>
+                <th>Détails UE</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data">
+                <td>{{data.etudiant.matricule}}</td>
+                <td>{{data.etudiant.nom}}</td>
+                <td>{{data.etudiant.prenom}}</td>
+                <td>{{data.note}}</td>
+                <td>{{data.ec.ue.ueLibelle}}</td>
+                
+                <td>{{data.noteDate}}</td>
+                <td>{{data.ec.ue.sem_Grade.semestre.semLibelle}}</td>
+
+
+                <td>
+                    <nz-popconfirm [nzTitle]="'Sûr de modifier?'" (nzOnConfirm)="ouvrirDetails(data.ec.ue.ueId)">
+                        <button nz-popconfirm title="Note par EC" nz-button nzType="green" [nzSize]="size"
+                            nzShape="circle">
+                            <i nz-icon type="edit"></i>
+                        </button>
+                    </nz-popconfirm>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

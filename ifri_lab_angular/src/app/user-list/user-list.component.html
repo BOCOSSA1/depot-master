@@ -1,0 +1,44 @@
+<nz-table #basicTable [nzData]="userList" [nzPageSize]=8>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénoms</th>
+      <th>Nom d'utiisateur</th>
+      <th>Type de personne</th>
+      <!-- <th>Rôle</th>
+
+      <th>Statut</th>
+      -->
+      <th>Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.nom}}</td>
+      <td>{{data.prenom}}</td>
+      <td>{{data.username}}</td>
+      <td>{{data.typePersonne}}</td>
+      <!--   <td>
+        {{data.roles}}
+      </td>
+
+      <td>{{data.statut}}</td>
+    -->
+      <td>
+
+        <nz-popconfirm [nzTitle]="'Sûr de modifier?'" (nzOnConfirm)="ouvrirModifier(data.username)">
+          <button nz-popconfirm title="Modifier" nz-button nzType="green" [nzSize]="size" nzShape="circle">
+            <i nz-icon type="edit"></i>
+          </button>
+        </nz-popconfirm>
+        <nz-popconfirm [nzTitle]="'Sûr de supprimer ?'" (nzOnConfirm)="deleteUser(data.personneId)">
+          <button nz-popconfirm title="Supprimer" nz-button nzType="danger" [nzSize]="size" nzShape="circle">
+            <i nz-icon type="delete"></i>
+          </button>
+        </nz-popconfirm>
+
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

@@ -1,0 +1,52 @@
+<form [formGroup]="validateForm" class="forme" (ngSubmit)="onsave()" style="margin-left: 15%;">
+
+    <div class="col-md-12">
+        <div class="row">
+
+            <div class="col-md-2">
+                <div class="form-group">
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">ID de grade: </label>
+                    <select class="form-control" id="gradeId" formControlName="gradeId">
+                        <option *ngFor="let o of grades" [ngValue]="o">{{o.gradeId}}-{{o.gradeLibelle}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">ID de semestre: </label>
+                    <select class="form-control" id="semId" formControlName="semId">
+                        <option *ngFor="let o of semestres" [ngValue]="o">{{o.semId}}-{{o.semLibelle}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Spécialité: </label>
+                    <select class="form-control" id="specialite" formControlName="specialite">
+                        <option [ngValue]="o" *ngFor="let o of specialites">{{o.specialite}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-toolbar" style="padding-left: 26%;">
+        <!-- <button routerLink="/register" type="submit" class="btn btn-success" [disabled]="!f.valid">Register</button>-->
+        <button type="submit" class="btn btn-success">Sauvegarder</button>
+        <button type="button" class="btn btn-default" (click)="onResetForm()">Reset</button>
+    </div>
+</form>

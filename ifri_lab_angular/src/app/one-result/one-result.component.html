@@ -1,0 +1,98 @@
+<form [formGroup]="validateForm" class="forme" (ngSubmit)="listResultat()" style="margin-left: 0%;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="control-label">Matricule :</label>
+            <input class="form-control" type="number" name="matricule" formControlName="matricule">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="control-label">Filière :</label>
+            <select class="form-control" id="specialite" formControlName="specialite">
+              <option [ngValue]="o" *ngFor="let o of specialites">{{o.specialite}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="control-label">Grade :</label>
+            <select class="form-control" id="gradeLibelle" formControlName="gradeLibelle">
+              <option [ngValue]="o" *ngFor="let o of grades">{{o.gradeLibelle}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="control-label">Semestre :</label>
+            <select class="form-control" id="semLibelle" formControlName="semLibelle">
+              <option [ngValue]="o" *ngFor="let o of semestres">{{o.semLibelle}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-1">
+          <div class="form-group">
+            <label class="control-label"> </label>
+            <button type="submit" class="btn btn-success" style="margin-top: 30%;"
+              [disabled]="validateForm.invalid">ok</button>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="form-group">
+            <label class="control-label"> </label>
+            <button style="margin-top: 30%;" class="btn ant-btn-group-lg" printTitle="Liste des résultats"
+              [useExistingCss]="true" printSectionId="print-section" ngxPrint><i nz-icon type="printer"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<div *ngIf="showRecord==true">
+  <nz-table #basicTable id="print-section" [nzData]="records" [nzPageSize]=5>
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>UE</th>
+        <th>Moyenne UE</th>
+        <th>Année Scolaire</th>
+        <th>Appréciation</th>
+        <!--
+  <th>Détails</th>-->
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.matricule}}</td>
+        <td>{{data.nom}}</td>
+        <td>{{data.prenom}}</td>
+        <td>{{data.ue}}</td>
+        <td>{{data.moyue.moy | number:'2.0-2'}}</td>
+        <td>{{data.annee}}</td>
+        <td *ngIf="data.appreciation =='Valider'" style="color: green;"><strong>{{data.appreciation}}</strong></td>
+        <td *ngIf="data.appreciation =='Non valider'" style="color: red;"><strong>{{data.appreciation}}</strong></td>
+
+        <!--
+  <td>
+      <nz-popconfirm [nzTitle]="'Voir note par UE?'" (nzOnConfirm)="ouvrirDetails(data.ueId)">
+        <button nz-popconfirm title="Détails" nz-button nzType="green" [nzSize]="size" nzShape="circle">
+          <i nz-icon type="eye"></i>
+        </button>
+      </nz-popconfirm>
+  </td>
+  -->
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

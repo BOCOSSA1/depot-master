@@ -1,0 +1,41 @@
+<nz-table #basicTable
+[nzData]="noteList"
+[nzPageSize]=100>
+<thead>
+<tr>
+  <th>Notes</th>
+  <th>Date des notes</th>
+  <th>EC</th>
+  <th>UE</th>
+  <th>Matricule</th>
+  <th>Nom</th>
+  <th>Prénom</th>
+  <th>Action</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let data of basicTable.data">
+  <td>{{data.note}}</td>
+  <td>{{data.noteDate}}</td>
+  <td>{{data.ec.ecLibelle}}</td>
+  <td>{{data.ec.ue.ueCode}}</td>
+  <td>{{data.etudiant.matricule}}</td>
+  <td>{{data.etudiant.nom}}</td>
+  <td>{{data.etudiant.prenom}}</td>
+  <td>
+      <nz-popconfirm [nzTitle]="'Sûr de modifier?'" (nzOnConfirm)="ouvrirModifier(data.noteId)">
+        <button nz-popconfirm title="Modifier" nz-button nzType="green" [nzSize]="size" nzShape="circle">
+          <i nz-icon type="edit"></i>
+        </button>
+      </nz-popconfirm>
+      <nz-popconfirm [nzTitle]="'Sûr de supprimer ?'" (nzOnConfirm)="noteDelete(data.noteId)">
+          <button nz-popconfirm title="Supprimer" nz-button nzType="danger" [nzSize]="size" nzShape="circle">
+            <i nz-icon type="delete"></i>
+          </button>
+      </nz-popconfirm>
+
+  </td>
+</tr>
+</tbody>
+</nz-table>

@@ -1,0 +1,51 @@
+<div class="btn-toolbar"> 
+  <button routerLink="/menu/save/grade-list" class="btn btn-sm btn-success">Liste des grades</button>
+</div>
+<form [formGroup]="validateForm" class="forme" (ngSubmit)="onsave()" style="margin-left: 15%;">
+ 
+    <div class="col-md-12">
+      <div class="row">
+        
+        <div class="col-md-2">
+            <div class="form-group">
+    
+            </div>
+          </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label class="control-label">ID: </label>
+            <input class="form-control" type="number" formControlName="gradeId"/>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+  
+          </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+              <label class="control-label">Grade: </label>
+              <select class="form-control" id="gradeLibelle" formControlName="gradeLibelle">
+                <option value="licence1">Licence 1</option>
+                <option value="licence2">Licence 2</option>
+                <option value="licence3">Licence 3</option>
+                <option value="master1">Master 1</option>
+                <option value="master2">Master 2</option>
+                <option value="doctora">Doctora</option>
+              </select>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="btn-toolbar" style="padding-left: 26%;">
+      <!-- <button routerLink="/register" type="submit" class="btn btn-success" [disabled]="!f.valid">Register</button>-->
+      <button type="submit"  class="btn btn-success" [disabled]="validateForm.invalid">Sauvegarder</button>
+      <button type="button" class="btn btn-default" (click)="onResetForm()">Reset</button>
+    </div>
+  </form>

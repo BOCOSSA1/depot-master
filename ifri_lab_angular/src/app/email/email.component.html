@@ -1,0 +1,26 @@
+<nz-layout>
+
+    <nz-content>
+        <form nz-form #f="ngForm" class="login-form" (ngSubmit)="onLogin(f.value)">
+            <nz-form-item>
+
+                <nz-form-control nzErrorTip="Veuillez entrer votre une adresse valide!">
+                    <nz-input-group nzPrefixIcon="edit">
+                        <textarea rows="4" nz-input [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}"></textarea>
+                    </nz-input-group>
+                </nz-form-control>
+                <nz-form-control nzErrorTip="Veuillez entrer votre une adresse valide!">
+                    <nz-input-group nzPrefixIcon="mail">
+                        <input type="password" nz-input ngModel="" placeholder="Email" name="password" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <button nz-button class="login-form-button" [nzType]="'primary'" type="submit">Se connecter</button>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </nz-content>
+    <nz-footer>Designed by Joël with Ant zorro <span style="float: right;">@ Copy-right 2019</span></nz-footer>
+</nz-layout>
